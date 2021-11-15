@@ -11,14 +11,23 @@ import {
 } from '@material-ui/core';
 import logo from '../../assets/commerce.png';
 import useStyles from './styles';
+import { Link, useLocation } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ totalItems }) => {
 	const classes = useStyles();
+	const location = useLocation();
+
 	return (
 		<>
 			<AppBar position='fixed' className={classes.appBar} color='inherit'>
 				<Toolbar>
-					<Typography>
+					<Typography
+						component={Link}
+						to='/'
+						cvariant='h6'
+						className={classes.title}
+						color='inherit'
+					>
 						<img
 							src={logo}
 							alt='Commerce.js'
@@ -28,12 +37,20 @@ const Navbar = () => {
 						Softhouse E-commerce Project
 					</Typography>
 					<div className={classes.grow} />
-					<div className={classes.button} />
-					<IconButton aria-label='Show cart items' color='inherit'>
-						<Badge badgeContent={2} color='secondary'>
-							<ShoppingCart />
-						</Badge>
-					</IconButton>
+					{location.pathname === '/' && (
+						<div className={classes.button}>
+							<IconButton
+								component={Link}
+								to='/cart'
+								aria-label='Show cart items'
+								color='inherit'
+							>
+								<Badge badgeContent={totalItems} color='secondary'>
+									<ShoppingCart />
+								</Badge>
+							</IconButton>
+						</div>
+					)}
 				</Toolbar>
 			</AppBar>
 		</>
