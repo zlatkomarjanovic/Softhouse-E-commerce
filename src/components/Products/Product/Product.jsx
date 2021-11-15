@@ -7,7 +7,7 @@ import {
 	Typography,
 	IconButton,
 } from '@material-ui/core';
-import { AddShoppingCart, CallMissedSharp } from '@material-ui/icons';
+import { AddShoppingCart } from '@material-ui/icons';
 import useStyles from './styles';
 
 const Product = ({ product, onAddToCart }) => {
