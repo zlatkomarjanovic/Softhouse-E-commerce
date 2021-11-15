@@ -11,14 +11,15 @@ import { useForm, FormProvider } from 'react-hook-form';
 import FormInput from './CustomFieldText';
 import { commerce } from '../../lib/commerce';
 import { Cart } from '..';
+import { Link } from 'react-router-dom';
 
 const AddressForm = ({ checkoutToken }) => {
 	const [shippingCountries, setShippingCountries] = useState([]);
 	const [shippingCountry, setShippingCountry] = useState('');
 	const [shippingSubdivisions, setShippingSubdivisions] = useState([]);
 	const [shippingSubdivision, setShippingSubdivision] = useState([]);
-	const [shippinhOptions, setShippinhOptions] = useState([]);
-	const [shippinhOption, setShippinhOption] = useState('');
+	const [shippingOptions, setShippingOptions] = useState([]);
+	const [shippingOption, setShippingOption] = useState('');
 	const methods = useForm();
 
 	const fetchShippingCountries = async (checkoutTokenId) => {
@@ -38,6 +39,20 @@ const AddressForm = ({ checkoutToken }) => {
 		setShippingSubdivision(Object.keys(subdivisions)[0]);
 	};
 
+	const fetchShippingOptions = async (
+		checkoutTokenId,
+		country,
+		stateProvince = null
+	) => {
+		const options = await commerce.checkout.getShippingOptions(
+			checkoutTokenId,
+			{ country, region: stateProvince }
+		);
+
+		setShippingOptions(options);
+		setShippingOption(options[0].id);
+	};
+
 	useEffect(() => {
 		fetchShippingCountries(checkoutToken.id);
 	}, []);
@@ -45,6 +60,15 @@ const AddressForm = ({ checkoutToken }) => {
 	useEffect(() => {
 		if (shippingCountry) fetchSubdivisions(shippingCountry);
 	}, [shippingCountry]);
+
+	useEffect(() => {
+		if (shippingSubdivision)
+			fetchShippingOptions(
+				checkoutToken.id,
+				shippingCountry,
+				shippingSubdivision
+			);
+	}, [shippingSubdivision]);
 
 	return (
 		<>
@@ -92,7 +116,37 @@ const AddressForm = ({ checkoutToken }) => {
 									))}
 							</Select>
 						</Grid>
+						<Grid item xs={12} sm={6}>
+							<InputLabel>Shipping Options</InputLabel>
+							<Select
+								value={shippingOption}
+								fullWidth
+								onChange={(e) => setShippingOption(e.target.value)}
+							>
+								{shippingOptions
+									.map((sO) => ({
+										id: sO.id,
+										label: `${sO.description} - (${sO.price.formatted_with_symbol})`,
+									}))
+									.map((item) => (
+										<MenuItem key={item.id} value={item.id}>
+											{item.label}
+										</MenuItem>
+									))}
+							</Select>
+						</Grid>
 					</Grid>
+					<br />
+					<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+						<Button component={Link} to='/cart' variant='outlined'>
+							{' '}
+							Back to Cart{' '}
+						</Button>
+						<Button type='submit' variant='contained' color='primary'>
+							{' '}
+							Next{' '}
+						</Button>
+					</div>
 				</form>
 			</FormProvider>
 		</>
