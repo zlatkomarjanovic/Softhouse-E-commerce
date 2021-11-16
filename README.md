@@ -22,3 +22,6 @@ Requirements:
 # NOTES :
 
 - If you are running windows 11 then you might have too high version of node.js. This issue recently happened on one of my projects and it broke my dependencies.
+
+- I am aware that I should put my api keys in the environment variables folder but I didn't do this for the sake of testing this software.
+  If I didn't do this then you would have to sign-up and get your own API key and that would be too much hassle for an internship task.
