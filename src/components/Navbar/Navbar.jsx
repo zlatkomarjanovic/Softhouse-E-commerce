@@ -23,7 +23,7 @@ const Navbar = ({ totalItems }) => {
 				<Toolbar>
 					<Typography
 						component={Link}
-						to='/'
+						to='/store'
 						cvariant='h6'
 						className={classes.title}
 						color='inherit'
@@ -34,31 +34,36 @@ const Navbar = ({ totalItems }) => {
 							height='25px'
 							className={classes.image}
 						/>
-						Softhouse E-commerce Project
+						Online Store
 					</Typography>
-					<Typography
-						component={Link}
-						to='/contact'
-						cvariant='h6'
-						color='inherit'
-					>
-						Contact
-					</Typography>
+
 					<div className={classes.grow} />
-					{location.pathname === '/' && (
-						<div className={classes.button}>
-							<IconButton
-								component={Link}
-								to='/cart'
-								aria-label='Show cart items'
-								color='inherit'
-							>
-								<Badge badgeContent={totalItems} color='secondary'>
-									<ShoppingCart />
-								</Badge>
-							</IconButton>
-						</div>
-					)}
+					<div>
+						<Typography className={classes.navLink} component={Link} to='/'>
+							Home
+						</Typography>
+					</div>
+					<div>
+						<Typography
+							className={classes.navLink}
+							component={Link}
+							to='/store'
+						>
+							Store
+						</Typography>
+					</div>
+					<div className={classes.button}>
+						<IconButton
+							component={Link}
+							to='/cart'
+							aria-label='Show cart items'
+							color='inherit'
+						>
+							<Badge badgeContent={totalItems} color='secondary'>
+								<ShoppingCart />
+							</Badge>
+						</IconButton>
+					</div>
 				</Toolbar>
 			</AppBar>
 		</>

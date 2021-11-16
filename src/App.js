@@ -5,8 +5,9 @@ import {
 	Navbar,
 	Cart,
 	Checkout,
-	Contact,
 	Footer,
+	Banner,
+	Home,
 } from './components';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -76,9 +77,14 @@ const App = () => {
 		<Router>
 			<div>
 				<Navbar totalItems={cart.total_items} />
+
 				<Routes>
 					<Route
 						path='/'
+						element={<Home products={products} onAddToCart={handleAddToCart} />}
+					/>
+					<Route
+						path='/store'
 						element={
 							<Products products={products} onAddToCart={handleAddToCart} />
 						}
@@ -106,7 +112,6 @@ const App = () => {
 							/>
 						}
 					/>
-					<Route path='/contact' element={<Contact />} />
 				</Routes>
 				<Footer />
 			</div>

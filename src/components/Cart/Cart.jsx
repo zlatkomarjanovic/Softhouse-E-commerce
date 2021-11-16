@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Typography, Button, Grid } from '@material-ui/core';
-import { mergeClasses } from '@material-ui/styles';
 import useStyles from './styles';
 import CartItem from './CartItem/CartItem';
 import { Link } from 'react-router-dom';
@@ -14,12 +13,20 @@ const Cart = ({
 	const classes = useStyles();
 
 	const EmptyCart = () => (
-		<Typography variant='subtitle1'>
-			You have no items in your shopping cart !
-			<Link to='/' className={classes.link}>
-				Buy something!
-			</Link>
-		</Typography>
+		<div style={{ justifyContent: 'center' }}>
+			<img
+				style={{ top: '50%', left: '50%' }}
+				src='https://cdn.dribbble.com/users/844846/screenshots/2981974/empty_cart_800x600_dribbble.png'
+			/>
+			<Typography
+				style={{ height: '100vh', textAlign: 'center' }}
+				variant='subtitle1'
+			>
+				<Link to='/' className={classes.link}>
+					Back to the store!
+				</Link>
+			</Typography>
+		</div>
 	);
 
 	const FilledCart = () => (

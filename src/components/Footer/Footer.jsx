@@ -8,7 +8,7 @@ const Footer = () => {
 		<footer>
 			<div className={classes.footerContainer}>
 				<Typography variant='h5' className={classes.footerTitle}>
-					Thank you for using our page
+					Thank you for using our products :D
 				</Typography>
 				<Typography variant='h6' className={classes.subtitle}>
 					Made using: React.js, Stripe.js, Commerce.js <br />

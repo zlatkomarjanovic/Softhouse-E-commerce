@@ -6,6 +6,7 @@ export default makeStyles((theme) => ({
 	appBar: {
 		boxShadow: 'none',
 		borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+
 		[theme.breakpoints.up('sm')]: {
 			width: `calc(100% - ${drawerWidth}px)`,
 			marginLeft: drawerWidth,
@@ -64,5 +65,11 @@ export default makeStyles((theme) => ({
 		[theme.breakpoints.up('md')]: {
 			width: '20ch',
 		},
+	},
+	navLink: {
+		textDecoration: 'none',
+		color: 'black',
+		marginRight: '2rem',
+		fontWeight: 'bold',
 	},
 }));

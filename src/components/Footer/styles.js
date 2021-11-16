@@ -7,6 +7,7 @@ export default makeStyles((theme) => ({
 		width: '100%',
 		height: '15rem',
 		backgroundColor: 'whitesmoke',
+		marginTop: '5rem',
 	},
 	footerTitle: {
 		left: '50%',

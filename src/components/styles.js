@@ -9,5 +9,7 @@ export default makeStyles((theme) => ({
 	},
 	root: {
 		flexGrow: 1,
+		margin: '0',
+		padding: '0',
 	},
 }));
