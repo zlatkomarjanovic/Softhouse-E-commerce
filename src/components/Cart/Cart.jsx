@@ -13,13 +13,18 @@ const Cart = ({
 	const classes = useStyles();
 
 	const EmptyCart = () => (
-		<div style={{ justifyContent: 'center' }}>
+		<div>
 			<img
-				style={{ top: '50%', left: '50%' }}
+				style={{
+					width: '100%',
+					top: '50%',
+					left: '50%',
+					justifyContent: 'center',
+				}}
 				src='https://cdn.dribbble.com/users/844846/screenshots/2981974/empty_cart_800x600_dribbble.png'
 			/>
 			<Typography
-				style={{ height: '100vh', textAlign: 'center' }}
+				style={{ height: '30vh', textAlign: 'center' }}
 				variant='subtitle1'
 			>
 				<Link to='/' className={classes.link}>

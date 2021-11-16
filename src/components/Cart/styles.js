@@ -18,6 +18,8 @@ export default makeStyles((theme) => ({
 		minWidth: '150px',
 	},
 	link: {
+		color: 'black',
+		fontSize: '1.5rem',
 		textDecoration: 'none',
 	},
 	cardDetails: {
