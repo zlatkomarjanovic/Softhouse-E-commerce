@@ -8,20 +8,16 @@ const Banner = () => {
 	const classes = useStyles();
 	return (
 		<>
-			<Container className={classes.bannerContainer} maxWidth='lg'>
-				<Typography className={classes.bannerText} align='center' variant='h2'>
-					Welcome to our Electronics Store
-				</Typography>
-
-				<Button
-					component={Link}
-					to='/store'
-					className={classes.bannerButton}
-					variant='contained'
-				>
-					Store
-				</Button>
-
+			<Container className={classes.bannerContainer} maxWidth='100%'>
+				<div>
+					<Typography
+						className={classes.bannerText}
+						align='center'
+						variant='h2'
+					>
+						Welcome to our Electronics Store
+					</Typography>
+				</div>
 				<img className={classes.banner} />
 			</Container>
 		</>

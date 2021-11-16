@@ -36,6 +36,7 @@ const Navbar = ({ totalItems }) => {
 						/>
 						Online Store
 					</Typography>
+					<div className={classes.grow} />
 
 					<div className={classes.grow} />
 					<div>
@@ -52,18 +53,20 @@ const Navbar = ({ totalItems }) => {
 							Store
 						</Typography>
 					</div>
-					<div className={classes.button}>
-						<IconButton
-							component={Link}
-							to='/cart'
-							aria-label='Show cart items'
-							color='inherit'
-						>
-							<Badge badgeContent={totalItems} color='secondary'>
-								<ShoppingCart />
-							</Badge>
-						</IconButton>
-					</div>
+					{(location.pathname === '/' || location.pathname === '/store') && (
+						<div className={classes.button}>
+							<IconButton
+								component={Link}
+								to='/cart'
+								aria-label='Show cart items'
+								color='inherit'
+							>
+								<Badge badgeContent={totalItems} color='secondary'>
+									<ShoppingCart />
+								</Badge>
+							</IconButton>
+						</div>
+					)}
 				</Toolbar>
 			</AppBar>
 		</>

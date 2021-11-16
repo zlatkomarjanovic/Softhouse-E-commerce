@@ -25,13 +25,4 @@ export default makeStyles((theme) => ({
 		color: 'white',
 		fontWeight: 'bold',
 	},
-	bannerButton: {
-		position: 'absolute',
-		top: 'calc(55%)',
-		left: '50%',
-		textAlign: 'center',
-		color: 'black',
-		textDecoration: 'none',
-		marginTop: '2rem',
-	},
 }));
