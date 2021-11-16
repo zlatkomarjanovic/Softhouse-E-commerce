@@ -36,6 +36,14 @@ const Navbar = ({ totalItems }) => {
 						/>
 						Softhouse E-commerce Project
 					</Typography>
+					<Typography
+						component={Link}
+						to='/contact'
+						cvariant='h6'
+						color='inherit'
+					>
+						Contact
+					</Typography>
 					<div className={classes.grow} />
 					{location.pathname === '/' && (
 						<div className={classes.button}>

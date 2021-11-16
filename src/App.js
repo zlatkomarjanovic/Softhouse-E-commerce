@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { commerce } from './lib/commerce';
-import { Products, Navbar, Cart, Checkout } from './components';
+import {
+	Products,
+	Navbar,
+	Cart,
+	Checkout,
+	Contact,
+	Footer,
+} from './components';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { AirlineSeatLegroomReducedRounded } from '@material-ui/icons';
 
 const App = () => {
 	const [products, setProducts] = useState([]);
@@ -100,7 +106,9 @@ const App = () => {
 							/>
 						}
 					/>
+					<Route path='/contact' element={<Contact />} />
 				</Routes>
+				<Footer />
 			</div>
 		</Router>
 	);
