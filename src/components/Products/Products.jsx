@@ -6,6 +6,8 @@ import useStyles from './styles';
 const Products = ({ products, onAddToCart }) => {
 	const classes = useStyles();
 
+	console.log(`Products are ${products}`);
+
 	return (
 		<main className={classes.content}>
 			<div className={classes.toolbar} />

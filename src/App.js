@@ -71,7 +71,7 @@ const App = () => {
 		fetchCart();
 	}, []);
 
-	console.log(cart);
+	commerce.cart.retrieve().then((cart) => console.log(cart));
 
 	return (
 		<Router>

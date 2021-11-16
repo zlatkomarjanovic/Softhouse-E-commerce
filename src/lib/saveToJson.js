@@ -1,10 +1,10 @@
-import React from 'react';
-import { commerce } from './commerce';
+const Commerce = require('@chec/commerce.js');
 
-const saveToJson = () => {
-	const cart = commerce.cart;
+const commerce = new Commerce(
+	'pk_test_358871ee6839c49ff467c487b783616975366ecc9b8f6',
+	true
+);
 
-	return <div></div>;
-};
+var obj;
 
-export default saveToJson;
+commerce.cart.retrieve().then((cart) => (obj = cart));
