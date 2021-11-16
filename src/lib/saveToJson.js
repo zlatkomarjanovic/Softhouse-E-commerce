@@ -12,7 +12,7 @@ commerce.cart
 		const someData = JSON.stringify(cart);
 		await fs.writeFile('data.json', someData, function (err) {
 			if (err) return console.log(err);
-			console.log('Success');
+			console.log('You have succesfully saved the file !');
 		});
 	})
 	.catch((err) => console.log(err));
