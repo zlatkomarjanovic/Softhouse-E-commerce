@@ -7,6 +7,7 @@ import {
 	Checkout,
 	Footer,
 	Banner,
+	Contact,
 	Home,
 } from './components';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -112,6 +113,7 @@ const App = () => {
 							/>
 						}
 					/>
+					<Route path='/contact' element={<Contact />} />
 				</Routes>
 				<Footer />
 			</div>

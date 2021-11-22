@@ -53,6 +53,15 @@ const Navbar = ({ totalItems }) => {
 							Store
 						</Typography>
 					</div>
+					<div>
+						<Typography
+							className={classes.navLink}
+							component={Link}
+							to='/contact'
+						>
+							Contact
+						</Typography>
+					</div>
 					{(location.pathname === '/' || location.pathname === '/store') && (
 						<div className={classes.button}>
 							<IconButton
