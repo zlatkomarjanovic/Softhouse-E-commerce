@@ -62,7 +62,9 @@ const Navbar = ({ totalItems }) => {
 							Contact
 						</Typography>
 					</div>
-					{(location.pathname === '/' || location.pathname === '/store') && (
+					{(location.pathname === '/' ||
+						location.pathname === '/store' ||
+						location.pathname === '/contact') && (
 						<div className={classes.button}>
 							<IconButton
 								component={Link}
